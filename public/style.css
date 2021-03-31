@@ -115,3 +115,8 @@ p {
   background-color: var(--color-dark-pink);
   border-radius: 4px;
 }
+
+/* Home */
+#home {
+  background: url("../imgs/homebackground.png") center/cover no-repeat;
+}
