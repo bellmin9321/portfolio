@@ -239,3 +239,32 @@ p {
   margin: 20px 20px;
   margin: auto;
 }
+
+.skillset {
+  display: flex;
+  background-color: var(--color-light-white);
+  color: var(--color-light-white);
+  margin: 20px 0;
+}
+
+.skillset__title {
+  color: var(--color-white);
+}
+
+.skillset__left {
+  flex-basis: 60%;
+  background-color: var(--color-dark-grey);
+}
+
+.skill__description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skillset__right {
+  flex-basis: 40%;
+}
+
+.tools {
+  background-color: var(--color-grey);
+}
