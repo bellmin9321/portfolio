@@ -1,12 +1,15 @@
-window.onscroll = scrollShowNav;
-const nav = document.querySelector('#navbar')
-const stickyTop = nav.offSetTop;
+'use strict'
 
-function scrollShowNav() {
-  if (window.pageYOffset >= stickyTop) {
-    nav.classList.add('fixed')
+// Make navbar transparent when it is on the top
+const navbar = document.querySelector('#navbar');
+const navbarHeight = navbar.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+  console.log(window.scrollY);
+  console.log(`navbarHeight : ${navbarHeight}`);
+
+  if(window.scrollY > navbarHeight) {
+    navbar.classList.add('navbar--dark');
   } else {
-    console.log('success')
-    nav.classList.remove('fixed')
+    navbar.classList.remove('navbar--dark')
   }
-}
+})
