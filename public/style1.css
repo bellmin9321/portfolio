@@ -105,9 +105,15 @@ p {
   width: 100%;
   justify-content: space-between;
   background-color: transparent;
+  transition: var(--animation-duration) ease-in-out;
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+}
+
+#navbar.navbar--dark {
+  background-color: var(--color-pink);
+  padding: 8px;
 }
 
 .navbar__menu {
