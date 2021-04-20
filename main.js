@@ -13,3 +13,14 @@ document.addEventListener('scroll', () => {
     navbar.classList.remove('navbar--dark')
   }
 })
+
+// scrollTo
+const location = document.querySelector(".about").offsetTop;
+const about = document.querySelector('.about');
+
+window.scrollTo({top: location, behavior:'smooth'});
+
+
+document.addEventListener('onclick', () => {
+  window.scrollBy(0, 100);
+})
