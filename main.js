@@ -14,27 +14,18 @@ document.addEventListener('scroll', () => {
   }
 })
 
-// scrollIntoView
+// Handle scrolling when tapping on the navbar menu
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (event) => {
+  
+  const target = event.target;
+  const link = target.dataset.link;
+  if( link == null ) {
+    return;
+  }
 
-const navbarAbout = document.querySelector('.navAbout');
-const about = document.querySelector('#about');
+  console.log(event.target.dataset.link)
+  const scrollTo = document.querySelector(link);
+  scrollTo.scrollIntoView({behavior: 'smooth'});
 
-navbarAbout.addEventListener('click', () => {
-  about.scrollIntoView();
-  console.log('ok');
 })
-// document.addEventListener('click', () => {
-//   console.log(`pageY : ${aboutHeight}`);
-//   window.scrollTo(aboutHeight)
-
-// })
-
-// const location = document.querySelector(".about").offsetTop;
-// const about = document.querySelector('.about');
-
-// window.scrollTo({top: location, behavior:'smooth'});
-
-
-// document.addEventListener('onclick', () => {
-//   window.scrollBy(0, 100);
-// })
