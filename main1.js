@@ -4,8 +4,8 @@
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-  console.log(window.scrollY);
-  console.log(`navbarHeight : ${navbarHeight}`);
+  // console.log(window.scrollY);
+  // console.log(`navbarHeight : ${navbarHeight}`);
 
   if(window.scrollY > navbarHeight) {
     navbar.classList.add('navbar--dark');
@@ -13,7 +13,6 @@ document.addEventListener('scroll', () => {
     navbar.classList.remove('navbar--dark')
   }
 })
-
 
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
@@ -24,64 +23,30 @@ navbarMenu.addEventListener('click', (event) => {
   if( link == null ) {
     return;
   }
+  scrollIntoView(link);
+})
 
-  console.log(event.target.dataset.link)
-  const scrollTo = document.querySelector(link);
+// Handle click on "contact me" button on home
+const homeContactBtn = document.querySelector('.home__contact');
+homeContactBtn.addEventListener('click', () => {
+  scrollIntoView('#contact');
+})
+// functino scrollIntoVeiw -> 반복되는 함수 방지
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: 'smooth'});
+}
 
+const home = document.querySelector('#home');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+  
+  if ( window.scrollY > homeHeight ) {
+    console.log(`homeHeight : ${homeHeight}`);
+    home.classList.add('home--transparent')
+  } else {
+    home.classList.remove('home--transparent')
+  }
 })
-// // Home
-// const navHome = document.querySelector('.navHome');
-// const home = document.querySelector('#home');
-
-// navHome.addEventListener('click', () => {
-//   home.scrollIntoView();
-// })
-
-// // About
-// const navAbout = document.querySelector('.navAbout');
-// const about = document.querySelector('#about');
-
-// navAbout.addEventListener('click', () => {
-//   about.scrollIntoView();
-// })
-// // Skills
-// const navSkills = document.querySelector('.navSkills');
-// const skills = document.querySelector('#skills');
-
-// navSkills.addEventListener('click', () => {
-//   skills.scrollIntoView();
-// })
-// // My work
-// const navWork = document.querySelector('.navWork');
-// const work = document.querySelector('#work');
-
-// navWork.addEventListener('click', () => {
-//   work.scrollIntoView();
-// })
-
-// // Testimonial
-// const navTestimonial = document.querySelector('.navTestimonial');
-// const testimonial = document.querySelector('#testimonial');
-
-// navTestimonial.addEventListener('click', () => {
-//   testimonial.scrollIntoView();
-//   console.log('testimonial ')
-// })
 
 
-// // Contact
-// const navContact = document.querySelector('.navContact');
-// const contact = document.querySelector('#contact');
-
-// navContact.addEventListener('click', () => {
-//   contact.scrollIntoView();
-// })
-
-// Contact me
-const contactMe = document.querySelector('.home__contact');
-const contact = document.querySelector('#contact');
-contactMe.addEventListener('click', () => {
-  contact.scrollIntoView({behavior: 'smooth'});
-  console.log('ok')
-})
