@@ -31,22 +31,19 @@ const homeContactBtn = document.querySelector('.home__contact');
 homeContactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
 })
-// functino scrollIntoVeiw -> 반복되는 함수 방지
+// function scrollIntoVeiw -> 반복되는 함수 방지
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: 'smooth'});
 }
-
-const home = document.querySelector('#home');
+// home transparent
+const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-  
-  if ( window.scrollY > homeHeight ) {
-    console.log(`homeHeight : ${homeHeight}`);
-    home.classList.add('home--transparent')
-  } else {
-    home.classList.remove('home--transparent')
+  const y = window.scrollY;
+  const max = homeHeight;
+  console.log(1- window.scrollY / homeHeight)
+  home.style.opacity = (max-y)/max
+  // '(max-y)/max' 라고 써서 계속 안됐었음 ㅡㅡ
   }
-})
-
-
+)
