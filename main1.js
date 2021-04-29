@@ -42,8 +42,23 @@ const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
   const y = window.scrollY;
   const max = homeHeight;
-  console.log(1- window.scrollY / homeHeight)
   home.style.opacity = (max-y)/max
   // '(max-y)/max' 라고 써서 계속 안됐었음 ㅡㅡ
+  // ''는 숫자, 문자
   }
 )
+
+// Arrow Up Btn 
+const arrowBtn = document.querySelector('.arrow-up');
+addEventListener('scroll', () => {
+  if ( window.scrollY > homeHeight ) {
+    arrowBtn.style.display = 'block'
+  } else {
+    arrowBtn.style.display = 'none'
+  }
+})
+
+arrowBtn.addEventListener('click', () => window.scrollTo({
+  top: 0,
+  behavior: 'smooth',
+}))
