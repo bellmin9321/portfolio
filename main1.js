@@ -62,3 +62,12 @@ arrowBtn.addEventListener('click', () => window.scrollTo({
   top: 0,
   behavior: 'smooth',
 }))
+
+// Filtering work
+const category = document.querySelector('.work__categories');
+category.addEventListener('click', (event) => {
+  console.log('active')
+  category.style.display = "block";
+  event.currentTarget.className += "active";
+})
+
