@@ -31,11 +31,7 @@ const homeContactBtn = document.querySelector('.home__contact');
 homeContactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
 })
-// function scrollIntoVeiw -> 반복되는 함수 방지
-function scrollIntoView(selector) {
-  const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({behavior: 'smooth'});
-}
+
 // home transparent
 const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
@@ -63,11 +59,20 @@ arrowBtn.addEventListener('click', () => window.scrollTo({
   behavior: 'smooth',
 }))
 
-// Filtering work
-const category = document.querySelector('.work__categories');
-category.addEventListener('click', (event) => {
-  console.log('active')
-  category.style.display = "block";
-  event.currentTarget.className += "active";
+// Projects
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+workBtnContainer.addEventListener('click', (e) => {
+  const filter = e.target.dataset.filter;
+  if( filter == null ) {
+    return; // 아무데나 클릭했을 때 undefined 안뜨게하기
+  }
+  console.log(e.target.dataset.filter)
 })
 
+// function scrollIntoVeiw -> 반복되는 함수 방지
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({behavior: 'smooth'});
+}
