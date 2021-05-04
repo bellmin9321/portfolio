@@ -60,15 +60,29 @@ arrowBtn.addEventListener('click', () => window.scrollTo({
 }))
 
 // Projects
-const workBtnContainer = document.querySelector('.work__categories');
+const workBtnContainer = document.querySelector('.work__categories' );
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (e) => {
-  const filter = e.target.dataset.filter;
-  if( filter == null ) {
-    return; // 아무데나 클릭했을 때 undefined 안뜨게하기
-  }
-  console.log(e.target.dataset.filter)
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if ( filter == null) {
+    return;
+  };
+  console.log(filter);
+
+  projects.forEach((project) => {
+    console.log(project);
+  }); 
+ // 위와 다 같은 문법
+  // for(let project of projects) {
+  //   console.log(project);
+  // }
+
+  // let project;
+  // for(let i = 0; i < projects.length; i++) {
+  //   project = projects[i];
+  //   console.log(project);
+  // }
 })
 
 // function scrollIntoVeiw -> 반복되는 함수 방지
