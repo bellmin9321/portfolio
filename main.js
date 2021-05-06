@@ -21,7 +21,7 @@ navbarMenu.addEventListener('click', (event) => {
   const target = event.target;
   const link = target.dataset.link;
   if( link == null ) {
-    return;
+    return; // 아무데나 클릭했을 때 undefined 안뜨게하기
   }
   scrollIntoView(link);
 })
@@ -36,7 +36,7 @@ homeContactBtn.addEventListener('click', () => {
 const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-  console.log(1- window.scrollY / homeHeight)
+  // console.log(1- window.scrollY / homeHeight)
   home.style.opacity = 1-window.scrollY / homeHeight;
   }
 )
@@ -55,6 +55,16 @@ document.addEventListener('scroll', () => {
 arrowUp.addEventListener('click', () => {
   scrollIntoView('#home')
 })
+
+// Projects
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+workBtnContainer.addEventListener('click', (e) => {
+  const filter = e.target.dataset.filter;
+  console.log(e.target.dataset.filter)
+})
+
 
 // function scrollIntoVeiw -> 반복되는 함수 방지
 function scrollIntoView(selector) {
