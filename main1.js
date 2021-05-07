@@ -63,6 +63,7 @@ arrowBtn.addEventListener('click', () => window.scrollTo({
 const workBtnContainer = document.querySelector('.work__categories' );
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
+
 workBtnContainer.addEventListener('click', (e) => {
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
   if ( filter == null) {
@@ -71,8 +72,14 @@ workBtnContainer.addEventListener('click', (e) => {
   console.log(filter);
 
   projects.forEach((project) => {
-    console.log(project);
+    // project.style.display = 'none'
+    console.log(project.dataset.type)
+    if ( filter === '*' || filter === project.dataset.type ) {
+      project.classList.add('openContent')
+      openContent.style.display = 'block'
+    }
   }); 
+
  // 위와 다 같은 문법
   // for(let project of projects) {
   //   console.log(project);
