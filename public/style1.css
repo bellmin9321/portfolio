@@ -85,7 +85,7 @@ h2 {
 
 h3 {
   font-size: var(--font-regular);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold);b
   color: var(--color-black);
   margin: 8px 0px;
 }
@@ -109,6 +109,7 @@ p {
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  z-index: 1;
 }
 
 #navbar.navbar--dark {
