@@ -70,15 +70,18 @@ workBtnContainer.addEventListener('click', (e) => {
     return;
   };
   console.log(filter);
-  projects.forEach((project) => {
-    // console.log(project.dataset.type)
-    if ( filter === '*' || filter === project.dataset.type) {
-      project.classList.remove('invisible')
-    } else {
-      project.classList.add('invisible')
-    }
-  })
-    
+  projectContainer.classList.add('anim-out')
+  setTimeout(() => {
+    projects.forEach((project) => {
+      console.log(project.dataset.type)
+      if ( filter === '*' || filter === project.dataset.type) {
+        project.classList.remove('invisible')
+      } else {
+        project.classList.add('invisible')
+      }
+    })
+    projectContainer.classList.remove('anim-out')
+  }, 300)
  // 위와 다 같은 문법
   // for(let project of projects) {
   //   console.log(project);
