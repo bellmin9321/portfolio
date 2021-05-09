@@ -70,31 +70,14 @@ workBtnContainer.addEventListener('click', (e) => {
     return;
   };
   console.log(filter);
-
   projects.forEach((project) => {
-    // project.style.display = 'none'
-    console.log(project.dataset.type)
-    if ( filter === '*' || filter === project.dataset.type ) {
-      project.classList.add('openContent')
-      openContent.style.display = 'block'
+    // console.log(project.dataset.type)
+    if ( filter === '*' || filter === project.dataset.type) {
+      project.classList.remove('invisible')
+    } else {
+      project.classList.add('invisible')
     }
-  }); 
-
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+  })
     
  // 위와 다 같은 문법
   // for(let project of projects) {
@@ -106,9 +89,9 @@ workBtnContainer.addEventListener('click', (e) => {
   //   project = projects[i];
   //   console.log(project);
   // }
-})
+});
 
-// function scrollIntoVeiw -> 반복되는 함수 방지
+// function scrollIntoView -> 반복되는 함수 방지
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: 'smooth'});
