@@ -61,8 +61,19 @@ const workBtnContainer = document.querySelector('.work__categories');
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (e) => {
-  const filter = e.target.dataset.filter;
-  console.log(e.target.dataset.filter)
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if ( filter == null) {
+    returnl
+  };
+  console.log(filter);
+  projects.forEach((project) => {
+    if ( filter === '*' || filter === projects.datset.type) {
+      project.classList.remove('invisible')
+    } else {
+      project.classList.add('invisible')
+    }
+  })
+
 })
 
 
