@@ -10,14 +10,21 @@ document.addEventListener('scroll', () => {
   if(window.scrollY > navbarHeight) {
     navbar.classList.add('navbar--dark');
   } else {
-    navbar.classList.remove('navbar--dark')
+    navbar.classList.remove('navbar--dark');
   }
+})
+
+// navbar toggle is open when it is clicked
+const toggle = document.querySelector('.navbar__toggle-btn');
+const navMenu = document.querySelector('.navbar__menu')
+toggle.addEventListener('click', () => {
+  toggle.classList.add('navbar__menu')
+  console.log('ok')
 })
 
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
-  
   const target = event.target;
   const link = target.dataset.link;
   if( link == null ) {
@@ -69,8 +76,7 @@ workBtnContainer.addEventListener('click', (e) => {
   if ( filter == null) {
     return;
   };
-
-  // Remove selection form the previous item and select the new one
+  // Remove selection from the previous item and select the new one
   const active = document.querySelector('.category__btn.selected');
   active.classList.remove('selected');
   const target = 
