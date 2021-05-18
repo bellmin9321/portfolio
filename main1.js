@@ -16,10 +16,14 @@ document.addEventListener('scroll', () => {
 
 // navbar toggle is open when it is clicked
 const toggle = document.querySelector('.navbar__toggle-btn');
-const navMenu = document.querySelector('.navbar__menu')
+const navMenu = document.querySelector('.navbar__menu');
 toggle.addEventListener('click', () => {
-  toggle.classList.add('navbar__menu')
-  console.log('ok')
+  if ( navMenu.style.display != 'none') {
+    navMenu.style.display = 'none';
+  } else {
+    navMenu.style.display = 'block';
+  }
+  console.log('ok');
 })
 
 // Handle scrolling when tapping on the navbar menu
