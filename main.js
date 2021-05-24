@@ -22,6 +22,7 @@ navbarMenu.addEventListener('click', (event) => {
   if( link == null ) {
     return; // 아무데나 클릭했을 때 undefined 안뜨게하기
   }
+  navbarMenu.classList.remove('open'); // menu에서 클릭시 menu 닫힘
   scrollIntoView(link);
 });
 
