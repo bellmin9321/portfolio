@@ -156,16 +156,6 @@ p {
   text-align: center;
 }
 
-.home--transparent {
-  opacity: 0.7;
-}
-.home--transparent1 {
-  opacity: 0.4;
-}
-.home--transparent2 {
-  opacity: 0.1;
-}
-
 .home__avatar {
   width: 250px;
   height: 250px;
@@ -197,6 +187,7 @@ p {
 
 .section__container {
   max-width: 1200px;
+  margin: auto;
 }
 
 /* About */
@@ -322,7 +313,7 @@ p {
 
 /* Work */
 .work__categories {
-  padding: 20px;
+  margin: 40px;
 }
 .category__btn {
   border: 1px solid var(--color-dark-white);
@@ -332,13 +323,13 @@ p {
   border-radius: 5px;
 }
 
-.category__btn.active,
+.category__btn.selected,
 .category__btn:hover {
   color: var(--color-white);
   background-color: var(--color-dark-pink);
 }
 
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   top: 0;
@@ -412,17 +403,19 @@ p {
   transform: translateY(0px);
 }
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
   content: "";
-  width: 25px;
+  width: 50px;
   height: 2px;
+
   display: block;
   position: relative;
   left: 50%;
-  margin-left: -12px;
+  /* margin-left: -12px; */
+  transform: translateX(-50%);
   margin-top: 8px;
   background-color: var(--color-dark-white);
 }
@@ -528,6 +521,11 @@ p {
   #navbar {
     flex-direction: column;
     text-align: center;
+    background-color: var(--color-pink);
+  }
+
+  #navbar.navbar--dark {
+    padding: 16px;
   }
 
   .navbar__menu {
@@ -535,6 +533,10 @@ p {
     text-align: center;
     width: 100%;
     display: none;
+  }
+
+  .navbar__menu.open {
+    display: block;
   }
 
   .about__majors {
