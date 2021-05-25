@@ -64,9 +64,10 @@ button {
   border: none;
   outline: none;
 }
-button:hover {
+
+/* button:hover {
   color: var(--color-dark-pink);
-}
+} */
 
 /* Typography */
 h1 {
@@ -176,6 +177,10 @@ p {
   padding: 8px 12px;
   border: 2px solid;
   border-radius: size;
+}
+
+.home__contact:hover {
+  background-color: var(--color-orange);
 }
 
 /* Section common */
@@ -422,7 +427,7 @@ p {
 
 /* Testimoneals */
 #testimonials {
-  background-color: var(--color-light-white);
+  background-color: var(--color-dark-white);
 }
 
 .testimonials {
@@ -514,6 +519,15 @@ p {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
   .navbar__toggle-btn {
     display: block;
   }
@@ -539,20 +553,36 @@ p {
     display: block;
   }
 
+  .section {
+    padding: 16px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 35px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    padding: auto;
+  }
+
   .project {
     flex-grow: 1;
+  }
+
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .testimonial__avatar {
