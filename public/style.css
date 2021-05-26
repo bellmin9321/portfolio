@@ -425,7 +425,7 @@ p {
   background-color: var(--color-dark-white);
 }
 
-/* Testimoneals */
+/* testimonials */
 #testimonials {
   background-color: var(--color-dark-white);
 }
@@ -586,7 +586,27 @@ p {
   }
 
   .testimonial__avatar {
-    width: 80px;
-    width: 80px;
+    width: 120px;
+    width: 120px;
+    margin-bottom: 20px;
+  }
+
+  .testimonial__avatar:nth-child(even),
+  .testimonial__avatar:nth-child(odd) {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  .testimonial__speech-bubble {
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    right: 16px;
+    bottom: 16px;
   }
 }
