@@ -325,6 +325,7 @@ p {
   font-size: var(--font-regular);
   padding: 8px 48px;
   text-align: center;
+  position: relative;
   border-radius: 5px;
 }
 
@@ -348,9 +349,9 @@ p {
   height: 24px;
   display: inline-block; /* span 속성 없애기위해 */
   line-height: 24px;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -530,6 +531,9 @@ p {
 
   .navbar__toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: var(--font-medium);
   }
 
   #navbar {
@@ -555,6 +559,7 @@ p {
 
   .section {
     padding: 16px;
+    padding-top: 40px;
   }
 
   .about__majors {
@@ -572,7 +577,8 @@ p {
   }
 
   .category__btn {
-    padding: auto;
+    margin: 4px 0;
+    width: 100%;
   }
 
   .project {
