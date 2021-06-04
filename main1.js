@@ -15,16 +15,16 @@ document.addEventListener('scroll', () => {
 })
 
 // navbar toggle is open when it is clicked
-const toggle = document.querySelector('.navbar__toggle-btn');
-const navMenu = document.querySelector('.navbar__menu');
-toggle.addEventListener('click', () => {
-  if ( navMenu.style.display != 'none') {
-    navMenu.style.display = 'none';
-  } else {
-    navMenu.style.display = 'block';
-  }
-  console.log('ok');
-})
+// const toggle = document.querySelector('.navbar__toggle-btn');
+// const navMenu = document.querySelector('.navbar__menu');
+// toggle.addEventListener('click', () => {
+//   if ( navMenu.style.display != 'none') {
+//     navMenu.style.display = 'none';
+//   } else {
+//     navMenu.style.display = 'block';
+//   }
+//   console.log('ok');
+// })
 
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
@@ -35,6 +35,34 @@ navbarMenu.addEventListener('click', (event) => {
     return;
   }
   scrollIntoView(link);
+})
+
+// intersection observer when scroll into specific page
+const items = document.querySelectorAll('.navbar__menu__item');
+const options = {
+  root: null, //viewport
+  rootMargin: '0px',
+  threshold: 0.5, // 0~1 (100%)
+};
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('active')
+      console.log(entry.target);
+    } else {
+      entry.target.classList.remove('active');
+      console.error(entry.target);
+    }
+  })
+}
+const observer = new IntersectionObserver(callback, options);
+items.forEach(navbar__menu__item => observer.observe(navbar__menu__item));
+
+// navbar toggle menu open&close
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
+  console.log('ok');
 })
 
 // Handle click on "contact me" button on home
