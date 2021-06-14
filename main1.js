@@ -37,27 +37,6 @@ navbarMenu.addEventListener('click', (event) => {
   scrollIntoView(link);
 })
 
-// intersection observer when scroll into specific page
-const items = document.querySelectorAll('.navbar__menu__item');
-const options = {
-  root: null, //viewport
-  rootMargin: '0px',
-  threshold: 0.5, // 0~1 (100%)
-};
-const callback = (entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('active')
-      console.log(entry.target);
-    } else {
-      entry.target.classList.remove('active');
-      console.error(entry.target);
-    }
-  })
-}
-const observer = new IntersectionObserver(callback, options);
-items.forEach(navbar__menu__item => observer.observe(navbar__menu__item));
-
 // navbar toggle menu open&close
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
@@ -144,3 +123,48 @@ function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: 'smooth'});
 }
+
+// 1. 모든 섹션 요소들을 가지고 온다
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.
+
+const sectionIds = ['#home', '#about', '#skills', '#work', '#testimonials', '#contact'];
+
+const sections = sectionIds.map(id => document.querySelector(id));
+const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`))
+console.log(sections);
+console.log(navItems);
+
+const observerOptions = {
+  root : null,
+  rootMargin: '0px',
+  threshold: 0.3,
+}
+
+const observerCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    console.log(entry.target);
+  })
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach(section => observer.observe(section));
+
+// // intersection observer when scroll into specific page
+// const items = document.querySelectorAll('.navbar__menu__item');
+// const options = {
+//   root: null, //viewport
+//   rootMargin: '0px',
+//   threshold: 0.5, // 0~1 (100%)
+// };
+// const callback = (entries, observer) => {
+//   entries.forEach(entry => {
+//     if(entry.isIntersecting) {
+//       entry.target.classList.add('active')
+//       console.log(entry.target);
+//     } else {
+//       entry.target.classList.remove('active');
+//       console.error(entry.target);
+//     }
+//   })
+// }
