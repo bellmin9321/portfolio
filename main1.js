@@ -131,9 +131,16 @@ function scrollIntoView(selector) {
 const sectionIds = ['#home', '#about', '#skills', '#work', '#testimonials', '#contact'];
 
 const sections = sectionIds.map(id => document.querySelector(id));
-const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`))
-console.log(sections);
-console.log(navItems);
+const navItems = sectionIds.map(id =>
+   document.querySelector(`[data-link="${id}"]`))
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+function selectedNavItem(selected) {
+  selectedNavItem.classList.remove('active');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('active');
+}
 
 const observerOptions = {
   root : null,
@@ -143,7 +150,17 @@ const observerOptions = {
 
 const observerCallback = (entries, observer) => {
   entries.forEach(entry => {
-    console.log(entry.target);
+    if(!entry.isIntersecting && entry.intersectingRation > 0) {
+      console.log(entry);
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      
+      // 스크롤링이 아래로 되어서 페이지가 올라옴
+      if(entry.boundingClientRect.y < 0) {
+        selectedIndex = index + 1;
+      } else {
+        selectedIndex = index - 1;
+      }
+    }
   })
 };
 
