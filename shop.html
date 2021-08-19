@@ -3,21 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, 
+  display: flex;
+  justify-content: center;
+  align-items: center;initial-scale=1.0">
   <title>Shopping List</title>
   <script src="https://kit.fontawesome.com/905d7a3a95.js" crossorigin="anonymous"></script>
   <script src="sh.js" defer></script>
   <link rel="stylesheet" href="./public/shop.css">
 </head>
 <body>
-  <div class="container">
-    <header>Shopping List</header>
-
-    <section>
-      <div class="list"></div>
-      <input type="text" class="text">
-    </section>
-    <footer><button><i class="fas fa-plus-circle"></i></button></footer>
-  </div>
+  <section class="list">
+    <header class="header">ToDoList</header>
+      <ul class="items">
+        <li class="item__row">
+          <div class="item">
+            <span class="item__name">Egg</span>
+            <button class="item__delete">
+              <i class="fas fa-trash="></i>
+            </button>
+          </div>
+          <div class="item__divider"></div>
+        </li>
+      </ul>
+    <footer class="footer">
+      <input type="text" class="footer__input" />
+      <button class="footer__button">
+        <i class="fas fa-plus-circle"></i>
+      </button>
+    </footer>
+  </section>
 </body>
 </html>
