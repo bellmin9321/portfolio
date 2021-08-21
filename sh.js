@@ -2,21 +2,19 @@
 
 const itemList = [];
 const list = document.querySelector(".list"),
-  input = document.querySelector(".send_text"),
-  delete_btn = document.querySelector(".delete_btn"),
-  inputButton = document.querySelector(".input_button");
+  item = document.querySelector(".item"),
+  item__row = document.querySelector(".item__row"),
+  item__delete = document.querySelector(".item__delete"),
+  footer__input = document.querySelector(".footer__input"),
+  footer__button = document.querySelector(".footer__button");
+
+inputButton.addEventListener('click', addItem)
 
 function addItem() {
-  const item = document.querySelector(".item").value;
-  if (item != null) {
-    list.push(item) {
-      document.querySelector(".item").value = "";
-      document.querySelector(".item").foucs();
-    }
-
-    showList()
+  const newList = document.createElement('li');
+  newList.innerHTML = item__row.value;
+  list.appendChild(newList);
   }
-}
 
 
 
