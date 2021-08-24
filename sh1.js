@@ -2,9 +2,12 @@
 
 const itemList = [];
 const items = document.querySelector('.items'),
+item = document.querySelector('.item'),
+itemRow = document.querySelector('.item__row'),
 item__delete = document.querySelector('.item__delete'),
+item__edit = document.querySelector('.item__edit'),
 input = document.querySelector('.footer__input'),
-  addBtn = document.querySelector('.footer__button');
+addBtn = document.querySelector('.footer__button');
 
   
   function onAdd() {
@@ -38,21 +41,39 @@ input = document.querySelector('.footer__input'),
       items.removeChild(itemRow);
     })
 
+    const editBtn = document.querySelector('button');
+    editBtn.setAttribute('class', 'item__edit');
+    editBtn.innerHTML = '<i class="fas fa-edit"></i>'
+    editBtn.addEventListener('click', () => {
+      item.innerHTML = input
+    })
+    
+
     const itemDivider = document.createElement('div');
     itemDivider.setAttribute('class', 'item__divider');
 
     item.appendChild(name);
     item.appendChild(deleteBtn);
+    item.appendChild(editBtn);
 
     itemRow.appendChild(item);
     itemRow.appendChild(itemDivider);
     return itemRow;
   }
 
+  item.addEventListener('click', () => {
+    item.classList.toggle('checked')
+    // if (event.target.tagName === 'LI') {
+    //   event.target.classList.toggle('checked');
+    // }
+  })
+
   addBtn.addEventListener('click', () => {
     onAdd();
   })
 
   input.addEventListener('keypress', (event) => {
-    console.log(event)
+    if (event.key === 'Enter'){
+      onAdd();
+    }
   })
