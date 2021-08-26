@@ -45,19 +45,19 @@ addBtn = document.querySelector('.footer__button');
     editBtn.setAttribute('class', 'item__edit');
     editBtn.innerHTML = '<i class="fas fa-edit"></i>'
     editBtn.addEventListener('click', () => {
-      item.innerHTML = input
+      alert('wow')
     })
     
 
     const itemDivider = document.createElement('div');
     itemDivider.setAttribute('class', 'item__divider');
 
-    item.appendChild(name);
-    item.appendChild(deleteBtn);
-    item.appendChild(editBtn);
+    item.append(name, deleteBtn, editBtn);
+    // item.appendChild(deleteBtn);
+    // item.appendChild(editBtn);
 
-    itemRow.appendChild(item);
-    itemRow.appendChild(itemDivider);
+    itemRow.append(item, itemDivider);
+    // itemRow.appendChild(itemDivider);
     return itemRow;
   }
 
