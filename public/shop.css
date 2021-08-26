@@ -44,13 +44,40 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 8px 32px;
+  cursor: pointer;
 }
 
-.item__delete {
+.checked {
+  color: red;
+  text-decoration: line-through;
+}
+/* 
+ul li.checked {
+  background-color: #ddd;
+  color: #272341;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  content: "";
+  position: absolute;
+  border-color: #272341;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 13px;
+  left: 80px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+} */
+
+.item__delete,
+.item__edit {
   font-size: 16px;
 }
 
-.item__delete:hover {
+.item__delete:hover,
+.item__edit:hover {
   color: red;
   transform: scale(1.1);
 }
