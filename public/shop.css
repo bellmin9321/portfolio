@@ -43,13 +43,14 @@ body {
 .item {
   display: flex;
   justify-content: space-between;
-  padding: 8px 32px;
+  padding: 8px 40px;
   cursor: pointer;
 }
 
 .checked {
   color: red;
   text-decoration: line-through;
+  background-color: gray;
 }
 /* 
 ul li.checked {
@@ -83,7 +84,7 @@ ul li.checked::before {
 }
 
 .item__divider {
-  width: 90%;
+  width: 85%;
   height: 1px;
   background-color: lightgray;
   margin: auto;
