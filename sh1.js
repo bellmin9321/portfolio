@@ -1,5 +1,6 @@
 'use strict'
 
+
 const itemList = [];
 const items = document.querySelector('.items'),
 item = document.querySelector('.item'),
@@ -13,6 +14,10 @@ addBtn = document.querySelector('.footer__button');
   function onAdd() {
     // 1. 사용자가 입력한 텍스트를 받아옴
     const text = input.value;
+    if ( text === '') {
+      input.focus(); // 빈 글은 추가 안되게 하기
+      return; 
+    }
     // 2. 새로운 아이템을 만듬(텍스트 + 삭제 버튼)
     const item = createItem(text);    
   // 3. items 컨테이너안에 새로 만든 아이템을 추가
@@ -22,58 +27,55 @@ addBtn = document.querySelector('.footer__button');
     input.focus();
 
   }
-
+  let id = 0; //UUID
   function createItem(text) {
     const itemRow = document.createElement('li');
     itemRow.setAttribute('class', 'item__row');
-
-    const item = document.createElement('div');
-    item.setAttribute('class', 'item');
-
-    const name = document.createElement('span');
-    name.setAttribute('class', 'item__name' )
-    name.innerText = text;
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.setAttribute('class', 'item__delete' )
-    deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-    deleteBtn.addEventListener('click', () => {
-      items.removeChild(itemRow);
-    })
-
-    const editBtn = document.querySelector('button');
-    editBtn.setAttribute('class', 'item__edit');
-    editBtn.innerHTML = '<i class="fas fa-edit"></i>'
-    editBtn.addEventListener('click', () => {
-      alert('wow')
-    })
-    
-
-    const itemDivider = document.createElement('div');
-    itemDivider.setAttribute('class', 'item__divider');
-
-    item.append(name, deleteBtn, editBtn);
-    // item.appendChild(deleteBtn);
-    // item.appendChild(editBtn);
-
-    itemRow.append(item, itemDivider);
-    // itemRow.appendChild(itemDivider);
+    itemRow.setAttribute('data-id', id);
+    item.setAttribute('data-check', check);
+    itemRow.innerHTML = `
+      <div class="item" data-check=${check}>
+          <span class="item__name">${text}</span>
+            <div.item__container>
+              <button class="item__delete">
+                <i class="fas fa-trash-alt" data-id=${id}></i>
+              </button>
+              <button class="item__edit">
+              <i class="fas fa-pen"></i>
+              </button>
+            </div>
+      </div>
+      <div class="item__divider"></div>`;
+    id++;
     return itemRow;
   }
 
-  item.addEventListener('click', () => {
-    item.classList.toggle('checked')
-    // if (event.target.tagName === 'LI') {
-    //   event.target.classList.toggle('checked');
-    // }
-  })
 
   addBtn.addEventListener('click', () => {
     onAdd();
   })
 
   input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter'){
+    if (event.key === 'Enter'){ // keyCode === 13 (Enter)
       onAdd();
     }
   })
+
+  items.addEventListener('click', event => {
+    const id = event.target.dataset.id;
+    const check = event.target.dataset.check;
+    // if (event.target.nodeName === "I") <-- 이건 너무 포괄적임
+    if (id) {
+      const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`)
+      toBeDeleted.remove();
+    } else if (check){
+      const done = document.querySelector(`.item[data-check="${check}]`)
+      done.classList.toggle('checked')
+      console.log('checked');
+    }
+  })
+  
+//   itemRow.addEventListener('click', () => {
+//     itemRow.classList.toggle('checked');
+    
+// })
