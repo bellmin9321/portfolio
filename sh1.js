@@ -14,7 +14,7 @@ addBtn = document.querySelector('.footer__button');
   function onAdd() {
     // 1. 사용자가 입력한 텍스트를 받아옴
     const text = input.value;
-    if ( text === '') {
+    if ( text === '') {0
       input.focus(); // 빈 글은 추가 안되게 하기
       return; 
     }
@@ -27,14 +27,14 @@ addBtn = document.querySelector('.footer__button');
     input.focus();
 
   }
+
   let id = 0; //UUID
   function createItem(text) {
     const itemRow = document.createElement('li');
     itemRow.setAttribute('class', 'item__row');
     itemRow.setAttribute('data-id', id);
-    item.setAttribute('data-check', check);
     itemRow.innerHTML = `
-      <div class="item" data-check=${check}>
+      <div class="item >
           <span class="item__name">${text}</span>
             <div.item__container>
               <button class="item__delete">
@@ -50,7 +50,6 @@ addBtn = document.querySelector('.footer__button');
     return itemRow;
   }
 
-
   addBtn.addEventListener('click', () => {
     onAdd();
   })
@@ -63,19 +62,9 @@ addBtn = document.querySelector('.footer__button');
 
   items.addEventListener('click', event => {
     const id = event.target.dataset.id;
-    const check = event.target.dataset.check;
-    // if (event.target.nodeName === "I") <-- 이건 너무 포괄적임
+    // if (event.target.nodeName === "I") <-- 이 방식은 포괄적이라 다른 아이콘도 포함시키면 그것도 선택됨
     if (id) {
-      const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`)
+      const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
       toBeDeleted.remove();
-    } else if (check){
-      const done = document.querySelector(`.item[data-check="${check}]`)
-      done.classList.toggle('checked')
-      console.log('checked');
-    }
+    } 
   })
-  
-//   itemRow.addEventListener('click', () => {
-//     itemRow.classList.toggle('checked');
-    
-// })
