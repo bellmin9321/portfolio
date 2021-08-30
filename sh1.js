@@ -1,6 +1,5 @@
 'use strict'
 
-
 const itemList = [];
 const items = document.querySelector('.items'),
 item = document.querySelector('.item'),
@@ -14,7 +13,7 @@ addBtn = document.querySelector('.footer__button');
   function onAdd() {
     // 1. 사용자가 입력한 텍스트를 받아옴
     const text = input.value;
-    if ( text === '') {0
+    if ( text === '') {
       input.focus(); // 빈 글은 추가 안되게 하기
       return; 
     }
@@ -22,7 +21,7 @@ addBtn = document.querySelector('.footer__button');
     const item = createItem(text);    
   // 3. items 컨테이너안에 새로 만든 아이템을 추가
     items.appendChild(item);
-  // 4. input 초기화 및 curosr 고정
+  // 4. input 초기화 및 cursor 고정
     input.value = '';
     input.focus();
 
@@ -67,4 +66,12 @@ addBtn = document.querySelector('.footer__button');
       const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
       toBeDeleted.remove();
     } 
+  })
+
+  const checkList = document.querySelector('.item__row');
+  checkList.addEventListener('click', event => {
+    console.log('gg')
+    if (event.target.tagName === 'LI') {
+      event.target.classList.toggle('checked')
+    }
   })
