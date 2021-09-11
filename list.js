@@ -1,17 +1,17 @@
-const input = document.querySelector('.input');
-const addBtn = document.querySelector('.button__add');
-const list = document.querySelector('.item__list');
-const item = document.querySelector('.item');
+'use strict'
 
-addBtn.addEventListener('click', () => {
-  
+const input = document.querySelector('.input'),
+      addBtn = document.querySelector('.button__add'),
+      list = document.querySelector('.item__list'),
+      item = document.querySelector('.item');
+
+      // <script ... defer> 작성안하면 실행안됨
+addBtn.addEventListener("click", function() {
+  const newList = document.createElement('li');
+  newList.setAttribute('class', 'item')
+  list.appendChild(newList);
+
+  newList.innerText = input.value;
+  input.value = "";
+  console.log('DD')
 })
-
-function addItem() {
-  const li = document.createElement('li');
-  // 1. button click 시 list 추가
-  li.innerHTML = input.value;
-  list.appendChild(li);
-  input.value = '';
-  
-}
