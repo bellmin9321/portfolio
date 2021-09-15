@@ -45,7 +45,7 @@ body {
   cursor: pointer;
 }
 
-.item__list {
+.items {
   list-style: none;
   margin: 0;
   background-color: white;
@@ -63,7 +63,13 @@ body {
   justify-content: space-between;
 }
 
-.fas:hover {
+.delete__btn {
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+}
+
+.delete__btn:hover {
   cursor: pointer;
   color: red;
 }
