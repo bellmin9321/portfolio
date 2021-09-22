@@ -2,7 +2,7 @@
 
 const input = document.querySelector('.input'),
       addBtn = document.querySelector('.button__add'),
-      items = document.querySelector('.item__list'),
+      items = document.querySelector('.items'),
       item = document.querySelector('.item'),
       itemRow = document.querySelector('.item__row'),
       deleteBtn = document.querySelector('.delete__btn');
@@ -18,9 +18,9 @@ function onAdd() {
 const item = createItem(text);
 itemRow.appendChild(item);
 
-  item.addEventListener('click', () => {
-    item.style.textDecoration = "line-through";
-  })
+  // item.addEventListener('click', () => {
+  //   item.style.textDecoration = "line-through";
+  // })
 
   item.scrollIntoView({block: 'center'});
   input.value = '';
@@ -52,10 +52,10 @@ input.addEventListener('keypress', (event) => {
   }
 })
 
-itemRow.addEventListener('click', (event) => {
+items.addEventListener('click', (event) => {
   const id = event.target.dataset.id;
   if(id) {
-    const deleteItem = document.querySelector(`.item[data-id="${id}]`);
+    const deleteItem = document.querySelector(`.item__row[data-id="${id}"]`);
     deleteItem.remove();
     }
 })
