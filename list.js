@@ -34,11 +34,14 @@ function createItem(text) {
   itemRow.setAttribute('data-id', id);
   itemRow.innerHTML = `
   <div class="item">
-    <span class="item__name">${text}</span>
+    <span class="item__name" >${text}</span>
     <button class = "delete__btn"><i class="fas fa-minus" data-id=${id}></i></button>
   </div>
   `;
   id++;
+  itemRow.addEventListener('click', () => {
+    itemRow.classList.toggle('checked')
+  })
   return itemRow;
 }
 
